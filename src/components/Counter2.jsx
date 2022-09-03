@@ -2,13 +2,14 @@
 import { useEffect, useState } from "react";
 import store from "../store";
 import { bindActionCreators } from "../redux";
-import * as actionCreators from "../store/actionCreators/counter1";
+import * as actionCreators from "../store/actionCreators/counter2";
 const boundActionCreators = bindActionCreators(actionCreators, store.dispatch);
-const Counter1 = () => {
-  const [state, setState] = useState(store.getState().counter1);
+const Counter2 = () => {
+  const [state, setState] = useState(store.getState().counter2);
+  console.log(store.getState());
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
-      setState(store.getState().counter1);
+      setState(store.getState().counter2);
       return () => {
         unsubscribe();
       };
@@ -17,11 +18,11 @@ const Counter1 = () => {
   return (
     <div>
       <h1>count:{state.count}</h1>
-      <button onClick={() => boundActionCreators.addAction1(20)}>
+      <button onClick={() => boundActionCreators.addAction2(20)}>
         increment
       </button>
     </div>
   );
 };
 
-export default Counter1;
+export default Counter2;

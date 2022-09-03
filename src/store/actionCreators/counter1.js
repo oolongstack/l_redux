@@ -1,4 +1,4 @@
-import { ADD1, INCREMENT1, SUB1 } from "./action-types";
+import { ADD1, INCREMENT1, SUB1 } from "../action-types";
 function addAction1(value) {
   return {
     type: ADD1,
